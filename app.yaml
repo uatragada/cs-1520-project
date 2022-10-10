@@ -2,7 +2,7 @@ runtime: python310
 
 handlers:
 - url: /cs
-  static_dir: F.E.
+  static_dir: static-files-folder
 
 - url: /.*
   script: auto
