@@ -1,0 +1,8 @@
+runtime: python310
+
+handlers:
+- url: /cs
+  static_dir: F.E.
+
+- url: /.*
+  script: auto
