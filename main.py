@@ -2,15 +2,14 @@ import datetime
 import flask
 import json
 import user
-
+import userModel
 app = flask.Flask(__name__)
-um = user.UserManager()
 
 
 
 @app.route('/')
 def root():
-    return flask.redirect("/LoginPage.html", code=302)
+    return flask.render_template("LoginPage.html", code=302)
 
 
 if __name__ == '__main__':
