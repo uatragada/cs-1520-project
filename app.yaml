@@ -1,7 +1,7 @@
 runtime: python310
 
 handlers:
-- url: /cs
+- url: /templates/
   static_dir: static-files-folder
 
 - url: /.*

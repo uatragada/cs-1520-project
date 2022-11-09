@@ -10,7 +10,7 @@ um = user.UserManager()
 
 @app.route('/')
 def root():
-    return flask.redirect("/cs/LoginPage.html", code=302)
+    return flask.redirect("/LoginPage.html", code=302)
 
 
 if __name__ == '__main__':
