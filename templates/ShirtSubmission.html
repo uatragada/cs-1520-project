@@ -10,8 +10,10 @@
             <a href="About.html">About</a>
             <a href="ShirtSubmission.html">Shirt Submission</a>
         </nav>
-        <form action="/action_page.php">
-            <input type="file" id="myFile" name="filename">
+        <form action="/shirtSubmission">
+            <label for="img">Select image:</label>
+            <input type="text" id="shirtName" name="shirtName">
+            <input type="file" id="shirtImage" name="shirtImage" accept="image/*">
             <input type="submit">
         </form>    
     </body>

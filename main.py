@@ -7,6 +7,7 @@ app = flask.Flask(__name__)
 um = user.UserManager()
 
 
+
 @app.route('/')
 def root():
     return flask.redirect("/cs/LoginPage.html", code=302)
@@ -32,3 +33,7 @@ def login_user():
     password = flask.request.form['password']
     if email and password:
         um.login_user(email, password)
+
+@app.route('/shirtSubmission', methods=['POST', 'GET'])
+def shirt_submission():
+    return flask.redirect("/cs/LoginPage.html", code=302)
