@@ -1,8 +1,5 @@
 from google.cloud import datastore
 
-
-
-
 class shirtManager():
 
     def __init__(self):
