@@ -1,10 +1,14 @@
 import datetime
 import flask
+import os
 import json
 import user
 import userModel
 
+
 app = flask.Flask(__name__)
+IMG_FOLDER = os.path.join('home/tys31/finalproj/cs-1520-project/static-files-folder', 'images')
+app.config['UPLOAD_FOLDER'] = IMG_FOLDER
 # um = user.UserManager()
 
 um = user.UserManager()
@@ -43,7 +47,8 @@ def About():
 
 @app.route('/ProductPage.html')
 def ProductPage():
-    return flask.render_template("ProductPage.html", code=302)
+    prod1 = os.path.join(app.config['UPLOAD_FOLDER'] , 'samp1.png')
+    return flask.render_template("ProductPage.html", code=302 , images = prod1)
 
 @app.route('/ShirtSubmission.html', methods=['POST', 'GET'])
 def shirt_submission():
