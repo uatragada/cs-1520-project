@@ -1,16 +1,33 @@
 from google.cloud import datastore
 
-class shirtManager():
+
+def get_client():
+    return datastore.Client()
+
+
+def create_design():
+    client = get_client()
+    key = client.key('design')
+    return datastore.Entity(key)
+
+
+def update_design(design):
+    client = get_client()
+    client.put(design)
+
+
+class ShirtManager():
 
     def __init__(self):
         self.user = None
 
-    def new_design(self, name, username, shirtImage):
+    def new_design(self, designer, shirtName, shirtDesignImage):
         shirt = create_design()
-        shirt['creator'] = username
-        shirt['designName'] = name
-        shirt['shirtImage'] = shirtImage
-        update_user(shirt)
+        shirt['designer'] = designer
+        shirt['shirtName'] = shirtName
+        shirt['shirtDesignImage'] = shirtDesignImage
+        update_design(shirt)
         self.shirt = shirt
         return shirt
 
+    

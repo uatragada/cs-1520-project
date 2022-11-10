@@ -1,7 +1,11 @@
 runtime: python310
 
 handlers:
+- url: /images
+  static_dir: static-files-folder/img
+  
 - url: /.*
   script: auto
+  
 
   

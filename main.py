@@ -2,13 +2,14 @@ import datetime
 import flask
 import json
 import user
-import userModel
+
+import shirts
 
 app = flask.Flask(__name__)
 # um = user.UserManager()
 
 um = user.UserManager()
-
+sm = shirts.ShirtManager()
 @app.route('/')
 def root():
     return flask.render_template("LoginPage.html", code=302)
@@ -41,7 +42,7 @@ def login_user():
 def About():
     return flask.render_template("About.html", code=302)
 
-@app.route('/ProductPage.html')
+@app.route('/ProductPage.html', methods = ['GET'])
 def ProductPage():
     return flask.render_template("ProductPage.html", code=302)
 
