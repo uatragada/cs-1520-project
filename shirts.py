@@ -28,6 +28,7 @@ class ShirtManager():
         shirt['shirtDesignImage'] = shirtDesignImage
         update_design(shirt)
         self.shirt = shirt
+        print(shirt)
         return shirt
 
     

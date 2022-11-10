@@ -14,7 +14,7 @@ def create_user():
 def update_user(user):
     client = get_client()
     client.put(user)
-
+    
 
 class UserManager():
 

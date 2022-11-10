@@ -48,7 +48,10 @@ def ProductPage():
 
 @app.route('/ShirtSubmission.html', methods=['POST', 'GET'])
 def shirt_submission():
-    designName = flask.request.form["shirtName"]
-    shirtImage = flask.request.form["shirtImage"]
-    sm.new_design(um.user,designName, shirtImage)
+    if flask.request.method == 'POST':
+        designName = flask.request.form["shirtName"]
+        shirtImage = flask.request.form["shirtImage"]
+        sm.new_design(um.user["first_name"],designName, shirtImage)
+        print("Saved New Design")
+        return flask.redirect("/ProductPage.html", code=302)
     return flask.render_template("ShirtSubmission.html", code=302)
