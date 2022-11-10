@@ -1,6 +1,2 @@
-<<<<<<< HEAD
 Flask==2.1.0
-=======
-Flask
->>>>>>> 681fdc11865b2bf798a65b680cc06dfb8466e003
 google-cloud-datastore
