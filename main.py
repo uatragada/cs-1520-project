@@ -21,21 +21,26 @@ if __name__ == '__main__':
 
 @app.route('/Register.html', methods=['POST', 'GET'])
 def register_user():
-        # fname = flask.request.form['fname']
-        # lname = flask.request.form['lname']
-        # email = flask.request.form['email']
-        # password = flask.request.form['password']
-        # if fname and lname and email and password:
-        #     um.register_user(fname, lname, email, password)
+    if flask.request.method =='POST':
+        fname = flask.request.form['fname']
+        lname = flask.request.form['lname']
+        email = flask.request.form['email']
+        password = flask.request.form['password']
+        if fname and lname and email and password:
+             um.register_user(fname, lname, email, password)
+             return flask.redirect('/ProductPage.html')
     return flask.render_template("Register.html", code=302)
+    
 
 
 @app.route('/LoginPage.html', methods=['POST', 'GET'])
 def login_user():
-    # email = flask.request.form['email']
-    # password = flask.request.form['password']
-    # if email and password:
-    #     um.login_user(email, password)
+    if flask.request.method == 'POST':
+        email = flask.request.form['email']
+        password = flask.request.form['password']
+        if email and password:
+            um.login_user(email, password)
+            return flask.redirect('/ProductPage.html')
     return flask.render_template("LoginPage.html", code=302)
 
 @app.route('/About.html')
@@ -55,3 +60,6 @@ def shirt_submission():
         print("Saved New Design")
         return flask.redirect("/ProductPage.html", code=302)
     return flask.render_template("ShirtSubmission.html", code=302)
+
+@app.route('/ShirtConfirmation.html', methods=['POST', 'GET'])
+def shirt_confirmation():
