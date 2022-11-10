@@ -7,6 +7,7 @@ import userModel
 app = flask.Flask(__name__)
 # um = user.UserManager()
 
+um = user.UserManager()
 
 @app.route('/')
 def root():
@@ -38,4 +39,9 @@ def register_user():
 
 @app.route('/ShirtSubmission.html', methods=['POST', 'GET'])
 def shirt_submission():
+<<<<<<< HEAD
     return flask.render_template("ShirtSubmission.html", code=302)
+=======
+
+    return flask.render_template("ShirtSubmission.html", code=302)
+>>>>>>> e7ae94cb182b77303cb7618d3fe882596cfdbaa7
