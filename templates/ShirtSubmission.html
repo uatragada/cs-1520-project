@@ -1,6 +1,8 @@
 <html>
+    
     <head>
         <title>Final Project</title>
+        <!-- <link rel="stylesheet" type="text/css" href="loginStyles.css">     -->
     </head>
     <body>
         <nav>
@@ -10,11 +12,18 @@
             <a href="About.html">About</a>
             <a href="ShirtSubmission.html">Shirt Submission</a>
         </nav>
+        
         <form action="/ShirtSubmission">
-            <label for="img">Select image:</label>
+            <div class= "login">
+            <label for = "shirtName"> Design Name </label>
             <input type="text" id="shirtName" name="shirtName">
+            <br>
+            <label for="img">Select Design Image:</label>
             <input type="file" id="shirtImage" name="shirtImage" accept="image/*">
+            <br>
             <input type="submit">
-        </form>    
+            </div>
+        </form>
+        
     </body>
 </html>
