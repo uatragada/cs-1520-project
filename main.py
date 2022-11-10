@@ -2,9 +2,8 @@ import datetime
 import flask
 import json
 import user
-
+import userModel
 app = flask.Flask(__name__)
-um = user.UserManager()
 
 
 
@@ -34,6 +33,12 @@ if __name__ == '__main__':
 #     if email and password:
 #         um.login_user(email, password)
 
+<<<<<<< HEAD
 # @app.route('/shirtSubmission', methods=['POST', 'GET'])
 # def shirt_submission():
 #     return flask.redirect("/cs/LoginPage.html", code=302)
+=======
+@app.route('/shirtSubmission', methods=['POST', 'GET'])
+def shirt_submission():
+    return flask.redirect("/cs/LoginPage.html", code=302)
+>>>>>>> 681fdc11865b2bf798a65b680cc06dfb8466e003
