@@ -3,8 +3,11 @@ import flask
 import json
 import user
 import shirts
+import hashlib
+
 
 app = flask.Flask(__name__)
+app.secret_key = b'QB\xb7\x89ry\xff}\xc3\x85B\x00.\xc3\xb7\xed'
 
 um = user.UserManager()
 sm = shirts.ShirtManager()
@@ -26,13 +29,13 @@ def register_user():
         uname = flask.request.form['username']
         email = flask.request.form['email']
         acc_type = flask.request.form['account-type']
-        password = flask.request.form['password']
+        password = get_password_hash(flask.request.form['password'])
         if not user.is_unique("email", email):
             return flask.render_template("Register.html", error_message='Account with this email already exists')
         if not user.is_unique("username", uname):
             return flask.render_template("Register.html", error_message='Username not available')
         elif fname and lname and uname and email and password and acc_type:
-            um.register_user(fname, lname, uname, email, password, acc_type)
+            flask.session['user'] = um.register_user(fname, lname, uname, email, password, acc_type)
             return flask.redirect('/ProductPage.html')
     return flask.render_template("Register.html", code=302)
     
@@ -41,10 +44,11 @@ def register_user():
 def login_user():
     if flask.request.method == 'POST':
         email = flask.request.form['email']
-        password = flask.request.form['password']
+        password = hash(flask.request.form['password'])
         if email and password:
-            um.login_user(email, password)
-            if um.user is not None:
+            flask.session['user'] = um.login_user(email, password)
+            curr_user = get_user()
+            if curr_user is not None:
                 return flask.redirect('/ProductPage.html')
             else:
                 return flask.render_template('/LoginPage.html', error_message='Incorrect username or password')
@@ -63,11 +67,24 @@ def shirt_submission():
     if flask.request.method == 'POST':
         designName = flask.request.form["shirtName"]
         shirtImage = flask.request.form["shirtImage"]
-        sm.new_design(um.user["first_name"],designName, shirtImage)
-        print("Saved New Design")
-        return flask.redirect("/ShirtConfimation.html", code=302)
+        curr_user = get_user()
+        if curr_user:
+            sm.new_design(curr_user['first_name'],designName, shirtImage)
+            print("Saved New Design")
+            return flask.redirect("/ShirtConfirmation.html", code=302)
     return flask.render_template("ShirtSubmission.html", code=302)
 
 @app.route('/ShirtConfirmation.html', methods=['POST', 'GET'])
 def shirt_confirmation():
     return flask.render_template("ShirtConfirmation.html", code=302)
+
+def get_user():
+    return flask.session.get('user', None)
+
+def get_password_hash(pw):
+    encoded = pw.encode('utf-8')
+    return hashlib.sha256(encoded).hexdigest()
+
+def logout():
+    flask.session['user'] = None
+    return flask.redirect('LoginPage.html')

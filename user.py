@@ -1,5 +1,5 @@
 from google.cloud import datastore
-
+import flask
 
 def get_client():
     return datastore.Client()
@@ -40,7 +40,7 @@ class UserManager():
         user['acc_type'] = acc_type
         update_user(user)
         self.user = user
-        return user
+        return self.user
 
     def login_user(self, email, password):
         client = get_client()
@@ -56,7 +56,3 @@ class UserManager():
             self.user = None
         return self.user
 
-    '''not implemented'''
-
-    def logout(self, user):
-        print()
