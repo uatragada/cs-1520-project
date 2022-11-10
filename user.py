@@ -14,6 +14,7 @@ def create_user():
 def update_user(user):
     client = get_client()
     client.put(user)
+    print(user)
     
 
 class UserManager():
@@ -34,14 +35,16 @@ class UserManager():
     def login_user(self, email, password):
         client = get_client()
         query = client.query(kind='user')
-        query.filter("email =", email)
-        query.filter("password =", password)
-        user = query.get()
-        if user:
-            self.user = user
-            return user
+        query.add_filter("email","=", email)
+        query.add_filter("password","=", password)
+        user = list(query.fetch())
+        print(user)
+        print(len(user))
+        if len(user) == 1:
+            self.user = user[0]
         else:
-            return None
+            self.user = None
+        return self.user
 
     '''not implemented'''
 

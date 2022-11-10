@@ -28,6 +28,7 @@ def register_user():
         password = flask.request.form['password']
         if fname and lname and email and password:
              um.register_user(fname, lname, email, password)
+             print("REGISTERING")
              return flask.redirect('/ProductPage.html')
     return flask.render_template("Register.html", code=302)
     
@@ -40,7 +41,10 @@ def login_user():
         password = flask.request.form['password']
         if email and password:
             um.login_user(email, password)
-            return flask.redirect('/ProductPage.html')
+            if um.user is not None:
+                print("Logging User In")
+                return flask.redirect('/ProductPage.html')
+            
     return flask.render_template("LoginPage.html", code=302)
 
 @app.route('/About.html')
@@ -58,8 +62,9 @@ def shirt_submission():
         shirtImage = flask.request.form["shirtImage"]
         sm.new_design(um.user["first_name"],designName, shirtImage)
         print("Saved New Design")
-        return flask.redirect("/ProductPage.html", code=302)
+        return flask.redirect("/ShirtConfimation.html", code=302)
     return flask.render_template("ShirtSubmission.html", code=302)
 
 @app.route('/ShirtConfirmation.html', methods=['POST', 'GET'])
 def shirt_confirmation():
+    return flask.render_template("ShirtConfirmation.html", code=302)
