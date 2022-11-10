@@ -6,6 +6,7 @@ import userModel
 app = flask.Flask(__name__)
 
 
+um = user.UserManager()
 
 @app.route('/')
 def root():
@@ -33,6 +34,7 @@ def login_user():
     if email and password:
         um.login_user(email, password)
 
-@app.route('/shirtSubmission', methods=['POST', 'GET'])
+@app.route('/ShirtSubmission.html', methods=['POST', 'GET'])
 def shirt_submission():
-    return flask.redirect("/cs/LoginPage.html", code=302)
+
+    return flask.render_template("ShirtSubmission.html", code=302)
