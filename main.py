@@ -2,14 +2,13 @@ import datetime
 import flask
 import json
 import user
-
 import shirts
 
 app = flask.Flask(__name__)
-# um = user.UserManager()
 
 um = user.UserManager()
 sm = shirts.ShirtManager()
+
 @app.route('/')
 def root():
     return flask.render_template("LoginPage.html", code=302)
@@ -24,15 +23,19 @@ def register_user():
     if flask.request.method =='POST':
         fname = flask.request.form['fname']
         lname = flask.request.form['lname']
+        uname = flask.request.form['username']
         email = flask.request.form['email']
+        acc_type = flask.request.form['account-type']
         password = flask.request.form['password']
-        if fname and lname and email and password:
-             um.register_user(fname, lname, email, password)
-             print("REGISTERING")
-             return flask.redirect('/ProductPage.html')
+        if not user.is_unique("email", email):
+            return flask.render_template("Register.html", error_message='Account with this email already exists')
+        if not user.is_unique("username", uname):
+            return flask.render_template("Register.html", error_message='Username not available')
+        elif fname and lname and uname and email and password and acc_type:
+            um.register_user(fname, lname, uname, email, password, acc_type)
+            return flask.redirect('/ProductPage.html')
     return flask.render_template("Register.html", code=302)
     
-
 
 @app.route('/LoginPage.html', methods=['POST', 'GET'])
 def login_user():
@@ -42,9 +45,9 @@ def login_user():
         if email and password:
             um.login_user(email, password)
             if um.user is not None:
-                print("Logging User In")
                 return flask.redirect('/ProductPage.html')
-            
+            else:
+                return flask.render_template('/LoginPage.html', error_message='Incorrect username or password')
     return flask.render_template("LoginPage.html", code=302)
 
 @app.route('/About.html')

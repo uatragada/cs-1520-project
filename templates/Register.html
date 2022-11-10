@@ -11,16 +11,26 @@
             <a href="About.html">About</a>
             <a href="ShirtSubmission.html">Shirt Submission</a>
         </nav>    
-        <h2>Registration</h2><br>    
-            <div class="login">
-                <form id="login" method="post">    
-                    <input type="text" name="fname" id="fname" placeholder="First Name">
+        <h2>Create Account</h2><br>    
+            <div class="register">
+                {% if error_message %}<div><strong>{{error_message}}</strong></div>{% endif %}
+                <form id="register" method="post">    
+                    <input type="text" name="fname" id="fname" placeholder="First Name" required>
                     <br><br>  
-                    <input type="text" name="lname" id="lname" placeholder="Last Name">    
+                    <input type="text" name="lname" id="lname" placeholder="Last Name" required>    
                     <br><br>  
-                    <input type="text" name="email" id="email" placeholder="Email">    
+                    <input type="text" maxlength="15" name="username" id="username" placeholder="Username" required>    
                     <br><br> 
-                    <input type="Password" name="password" id="password" placeholder="Password">    
+                    <input type="text" name="email" id="email" placeholder="Email" required>    
+                    <br><br> 
+                    <input type="Password" name="password" id="password" placeholder="Password" required>    
+                    <br><br> 
+                    <label for="account-type">Account Type:</label>
+                    <input type="radio" id="designer" name="account-type" value="designer">
+                    <label for="designer">Designer</label>
+                    <input type="radio" id="patron" name="account-type" value="patron">
+                    <label for="patron">Patron</label>
+                
                     <br><br> 
                     <input type="submit" name="register" id="register" value="Register">       
                 </form>                          
