@@ -6,16 +6,16 @@
         <nav>
             {% if current_user %}
             <label>{{current_user.username}}</label>
+            <a href="/account">My Account</a>
             <a href="/logout">Sign Out</a>
 
             {% else %}
-            <a href="/login">Login Page</a>
+            <a href="/login">Login</a>
             <a href="/register">Register</a>
             {% endif %}
             <a href="/products">Products</a>
             <a href="/about">About</a>
             <a href="/shirt-submission">Shirt Submission</a>
-            
         </nav>
      
         <header>

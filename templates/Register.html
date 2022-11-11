@@ -12,7 +12,7 @@
                     <br><br>  
                     <input type="text" name="lname" id="lname" placeholder="Last Name" required>    
                     <br><br>  
-                    <input type="text" maxlength="15" name="username" id="username" placeholder="Username" required>    
+                    <input type="text" maxlength="15" pattern="[A-Za-z]{4,}" name="username" id="username" placeholder="Username" required>    
                     <br><br> 
                     <input type="text" name="email" id="email" placeholder="Email" required>    
                     <br><br> 
@@ -23,7 +23,7 @@
                     <label for="designer">Designer</label>
                     <input type="radio" id="patron" name="account-type" value="patron" required>
                     <label for="patron">Patron</label>
-                
+            
                     <br><br> 
                     <input type="submit" name="register" id="register" value="Register">       
                 </form>                          

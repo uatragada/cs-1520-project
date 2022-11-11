@@ -48,8 +48,8 @@ class UserManager():
         query.add_filter("email","=", email)
         query.add_filter("password","=", password)
         user = list(query.fetch())
-        print(user)
-        print(len(user))
+        #print(user)
+        #print(len(user))
         if len(user) == 1:
             self.user = user[0]
         else:

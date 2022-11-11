@@ -51,7 +51,6 @@ def login_user():
         password = get_password_hash(flask.request.form['password'])
         if email and password:
             flask.session['user'] = um.login_user(email, password)
-            print(get_user())
             curr_user = get_user()
             if curr_user is not None:
                 return flask.redirect('/products')
@@ -66,6 +65,10 @@ def About():
 @app.route('/products', methods = ['GET'])
 def ProductPage():
     return show_page("/ProductPage.html")
+
+@app.route('/account')
+def Account():
+    return show_page("/AccountInfo.html")
 
 @app.route('/shirt-submission', methods=['POST', 'GET'])
 def shirt_submission():
