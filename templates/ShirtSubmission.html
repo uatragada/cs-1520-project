@@ -1,18 +1,10 @@
-<html>
-    
-    <head>
-        <title>Final Project</title>
-        <!-- <link rel="stylesheet" type="text/css" href="loginStyles.css">     -->
-    </head>
-    <body>
-        <nav>
-            <a href="LoginPage.html">Login Page</a>
-            <a href="Register.html">Register</a>
-            <a href="ProductPage.html">Products</a>
-            <a href="About.html">About</a>
-            <a href="ShirtSubmission.html">Shirt Submission</a>
-        </nav>
-        
+
+    {% extends '_base-nav.html' %}
+    {% block header %}
+    <title>Shirt Submission</title>
+    {% endblock %}   
+    {% block content %}
+<h1>Shirt Submission</h1>
         <form action="/ShirtSubmission.html" method="POST">
             <div class= "login">
             <label for = "shirtName"> Design Name </label>
@@ -26,4 +18,4 @@
         </form>
         
     </body>
-</html>
+    {% endblock %}

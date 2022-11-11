@@ -1,16 +1,9 @@
-<html>
-    <head>
-        <title>Final Project</title>
-    </head>
-    <body>
-        <nav>
-            <a href="LoginPage.html">Login Page</a>
-            <a href="Register.html">Register</a>
-            <a href="ProductPage.html">Products</a>
-            <a href="About.html">About</a>
-            <a href="ShirtSubmission.html">Shirt Submission</a>
-        </nav>
-        <header>
+
+    {% extends '_base-nav.html' %}
+    {% block header %}
+    <title>About</title>
+    {% endblock %}   
+    {% block content %}
             <h1>About Our App</h1>
             <p>Our app allows designers to upload and promote their own work</p>
             <p>As well as allow users to explore and vote on these creative designs.</p>
@@ -30,4 +23,4 @@
                 </div>
             </article>
     </body>
-</html>
+    {% endblock %}

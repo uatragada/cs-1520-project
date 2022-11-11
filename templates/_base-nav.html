@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>{{page_title}}</title>
+    </head>
+    <body>
+        <nav>
+            {% if current_user %}
+            <label>{{current_user.username}}</label>
+            <a href="/logout">Sign Out</a>
+
+            {% else %}
+            <a href="/login">Login Page</a>
+            <a href="/register">Register</a>
+            {% endif %}
+            <a href="/products">Products</a>
+            <a href="/about">About</a>
+            <a href="/shirt-submission">Shirt Submission</a>
+            
+        </nav>
+     
+        <header>
+            {% block header %}{% endblock %}
+        </header>
+        <section>
+            {% block content %}{% endblock %}
+        </section>
+    </body>
+</html>

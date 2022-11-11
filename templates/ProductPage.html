@@ -1,16 +1,9 @@
-<html>
-    <head>
-        <title>Final Project</title>
-    </head>
-    <body>
-        <nav>
-            <a href="LoginPage.html">Login Page</a>
-            <a href="Register.html">Register</a>
-            <a href="ProductPage.html">Products</a>
-            <a href="About.html">About</a>
-            <a href="ShirtSubmission.html">Shirt Submission</a>
-        </nav>
-        <header>
+
+    {% extends '_base-nav.html' %}
+    {% block header %}
+    <title>Products</title>
+    {% endblock %}   
+    {% block content %}
             <h1>Products</h1>
         </header>
         <section>
@@ -21,4 +14,4 @@
             <img src="/images/samp3.png"alt = "Sample 3" height="350" width="350">
         </section>
     </body>
-</html>
+    {% endblock %}
