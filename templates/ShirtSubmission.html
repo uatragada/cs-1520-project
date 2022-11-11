@@ -13,18 +13,18 @@
             <label for="shirtImage">Select Design Image:</label>
             <input type="file" id="shirtImage" name="shirtImage" accept="image/*" required>
             <br><br>
-            <button class="submit-btn" onclick="checkForm()">Submit</button>
+            <button type="button" class="submit-btn" onclick="checkForm()">Submit</button>
             </div>
         </form>
         <script>
             function checkForm(){
-                if (document.getElementById('shirtName').value ==""){
-                    alert("Please add a name to your design")
-                    
-                } else if (document.getElementById("shirtImage").value!=""){
+                if(document.getElementById("shirtName").value!='' && document.getElementById('shirtImage').value!=''){
                     document.getElementById("shirt-form").submit();
                 }
+                else if(document.getElementById("shirtName").value==''){
+                    alert("Please add a name to your design")
             }
+        }
         </script>
 
     </body>
