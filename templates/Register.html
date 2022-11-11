@@ -1,22 +1,27 @@
 
     {% extends '_base-nav.html' %}
     {% block header %}
-    <title>Login Page</title>
+    <title>Register Account</title>
     {% endblock %}   
     {% block content %}
         <h2>Create Account</h2><br>    
             <div class="register">
                 {% if error_message %}<div><strong>{{error_message}}</strong></div>{% endif %}
-                <form id="register" method="post">    
+                <form id="register" method="post">   
+                    <label for="fname">First Name</label> 
                     <input type="text" name="fname" id="fname" placeholder="First Name" required>
-                    <br><br>  
+                    <br><br> 
+                    <label for="lname">Last Name</label>  
                     <input type="text" name="lname" id="lname" placeholder="Last Name" required>    
                     <br><br>  
+                    <label for="username">Username</label> 
                     <input type="text" maxlength="15" pattern="[A-Za-z]{4,}" onfocus="displayMessage()" name="username" id="username" placeholder="Username" required>
                     <label for="username" id="uname-info" style="visibility: hidden;"><br>must consist of 4 or more letters only</label>   
                     <br><br> 
+                    <label for="email">Email</label> 
                     <input type="text" name="email" id="email" placeholder="Email" required>    
                     <br><br> 
+                    <label for="password">Password</label> 
                     <input type="Password" name="password" id="password" placeholder="Password" required>    
                     <br><br> 
                     <label for="account-type">Account Type:</label>

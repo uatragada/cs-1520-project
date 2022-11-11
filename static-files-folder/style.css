@@ -1,7 +1,7 @@
 .base-nav{
     background-color:darkcyan;
     color:white;
-
+    height:10%;
 }
 
 .base-body{
@@ -25,4 +25,20 @@
 }
 a:hover, .submit-btn:hover{
     cursor:pointer;
+}
+
+.account-info{
+    text-align:left;
+    font-size:110%;
+    margin-left:40%;
+    padding-top:2%;
+    padding-bottom:10%;
+}
+
+label{
+    font-weight:bold;
+}
+
+.success-msg{
+    padding:30px;
 }
