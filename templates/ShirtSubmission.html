@@ -5,17 +5,27 @@
     {% endblock %}   
     {% block content %}
 <h1>Shirt Submission</h1>
-        <form action="/shirt-submission" method="POST">
-            <div class= "login">
-            <label for = "shirtName"> Design Name </label>
-            <input type="text" id="shirtName" name="shirtName">
-            <br>
-            <label for="img">Select Design Image:</label>
-            <input type="file" id="shirtImage" name="shirtImage" accept="image/*">
-            <br>
-            <input type="submit" class="submit-btn">
+        <form action="/shirt-submission" method="POST" id="shirt-form">
+            <div class= "shirt-submission">
+            <label for="shirtName"> Design Name </label>
+            <input type="text" id="shirtName" name="shirtName" value="">
+            <br><br>
+            <label for="shirtImage">Select Design Image:</label>
+            <input type="file" id="shirtImage" name="shirtImage" accept="image/*" required>
+            <br><br>
+            <button class="submit-btn" onclick="checkForm()">Submit</button>
             </div>
         </form>
-        
+        <script>
+            function checkForm(){
+                if (document.getElementById('shirtName').value ==""){
+                    alert("Please add a name to your design")
+                    
+                } else if (document.getElementById("shirtImage").value!=""){
+                    document.getElementById("shirt-form").submit();
+                }
+            }
+        </script>
+
     </body>
     {% endblock %}
