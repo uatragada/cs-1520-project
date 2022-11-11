@@ -12,7 +12,8 @@
                     <br><br>  
                     <input type="text" name="lname" id="lname" placeholder="Last Name" required>    
                     <br><br>  
-                    <input type="text" maxlength="15" pattern="[A-Za-z]{4,}" name="username" id="username" placeholder="Username" required>    
+                    <input type="text" maxlength="15" pattern="[A-Za-z]{4,}" onfocus="displayMessage()" name="username" id="username" placeholder="Username" required>
+                    <label for="username" id="uname-info" style="visibility: hidden;"><br>must consist of 4 or more letters only</label>   
                     <br><br> 
                     <input type="text" name="email" id="email" placeholder="Email" required>    
                     <br><br> 
@@ -28,6 +29,11 @@
                     <input type="submit" name="register" id="register" value="Register" class="submit-btn">      
                 </form>                          
             </div>    
+            <script>
+                function displayMessage(){
+                    document.getElementById("uname-info").style.visibility = "visible";
+                }
+            </script>
     </body>    
  
     {% endblock %}
