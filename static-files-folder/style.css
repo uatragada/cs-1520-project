@@ -27,7 +27,15 @@
 a:hover, .submit-btn:hover{
     cursor:pointer;
 }
-
+a:link{
+    color:white;
+}
+a:visited {
+    color: white;
+}
+a:active{
+    font-weight:bold;
+}
 .account-info{
     text-align:left;
     font-size:110%;
