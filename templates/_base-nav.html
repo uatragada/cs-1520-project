@@ -1,27 +1,28 @@
 <html>
     <head>
         <title>{{page_title}}</title>
+        <link rel="stylesheet" href="/s/style.css">
     </head>
-    <body>
-        <nav>
+    <body class="base-body">
+        <nav class="base-nav">
             {% if current_user %}
-            <label>{{current_user.username}}</label>
-            <a href="/account">My Account</a>
-            <a href="/logout">Sign Out</a>
+            <label class="nav-link">{{current_user.username}}</label>
+            <a class="nav-link" href="/account">My Account</a>
+            <a class="nav-link" href="/logout">Sign Out</a>
 
             {% else %}
-            <a href="/login">Login</a>
-            <a href="/register">Register</a>
+            <a class="nav-link" href="/login">Login</a>
+            <a class="nav-link" href="/register">Register</a>
             {% endif %}
-            <a href="/products">Products</a>
-            <a href="/about">About</a>
-            <a href="/shirt-submission">Shirt Submission</a>
+            <a class="nav-link" href="/products">Products</a>
+            <a class="nav-link" href="/about">About</a>
+            <a class="nav-link" href="/shirt-submission">Shirt Submission</a>
         </nav>
      
         <header>
             {% block header %}{% endblock %}
         </header>
-        <section>
+        <section class="base-section">
             {% block content %}{% endblock %}
         </section>
     </body>
