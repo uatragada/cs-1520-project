@@ -19,7 +19,7 @@ def update_design(design):
 class ShirtManager():
 
     def __init__(self):
-        self.user = None
+        self.shirt = None
 
     def new_design(self, designer, shirtName, shirtDesignImage):
         shirt = create_design()
@@ -29,6 +29,6 @@ class ShirtManager():
         update_design(shirt)
         self.shirt = shirt
         print(shirt)
-        return shirt
+        return self.shirt
 
     

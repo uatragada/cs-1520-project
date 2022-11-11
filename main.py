@@ -51,6 +51,7 @@ def login_user():
         password = get_password_hash(flask.request.form['password'])
         if email and password:
             flask.session['user'] = um.login_user(email, password)
+            print(get_user())
             curr_user = get_user()
             if curr_user is not None:
                 return flask.redirect('/products')
