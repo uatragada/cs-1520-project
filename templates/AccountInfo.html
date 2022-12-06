@@ -1,0 +1,18 @@
+
+    {% extends '_base-nav.html' %}
+    {% block header %}
+    <title>Account</title>
+    {% endblock %}   
+    {% block content %}
+    <h1>My Account</h1>
+    <div class="account-info">
+        <p><span class="account-detail">{{ current_user.first_name }} {{current_user.last_name}}</span><p>
+        <p>Username: <span class="account-detail">{{ current_user.username }}</span><p>
+        <p>Account Type: <span class="account-detail">{{ current_user.acc_type }}</span><p>
+    </p>
+    </div>
+    <!--designs that the user has submitted should be displayed here-->
+    <div class="user-designs">
+        <p>Submitted Designs:</p>
+    </div>
+    {% endblock %}

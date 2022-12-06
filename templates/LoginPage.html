@@ -1,31 +1,26 @@
-<html>    
-    <head>    
-        <title>Final Project</title>
-        <!-- <link rel="stylesheet" type="text/css" href="loginStyles.css">     -->
-    </head>    
-    <body>
-        <nav>
-            <a href="LoginPage.html">Login Page</a>
-            <a href="Register.html">Register</a>
-            <a href="ProductPage.html">Products</a>
-            <a href="About.html">About</a>
-            <a href="ShirtSubmission.html">Shirt Submission</a>
-        </nav>    
-        <h2>Login Page</h2><br>    
+
+    {% extends '_base-nav.html' %}
+    {% block header %}
+    <title>Login</title>
+    {% endblock %}   
+    {% block content %}
+        <h2>Login</h2><br>    
             <div class="login">
-                <form id="login" method="post">    
-                    <label><b>User Name     
+                {% if error_message %}<div><strong>{{error_message}}</strong></div>{% endif %}
+                <form id="login" name=login method="POST">    
+                    <label><b>Email     
                     </b>    
                     </label>    
-                    <input type="text" name="Uname" id="Uname" placeholder="Username">    
+                    <input type="text" name="email" id="email" placeholder="Email" required>    
                     <br><br>    
                     <label><b>Password     
                     </b>    
                     </label>    
-                    <input type="Password" name="Pass" id="Pass" placeholder="Password">    
+                    <input type="Password" name="password" id="password" placeholder="Password" required>    
                     <br><br>    
-                    <input type="button" name="log" id="log" value="Log In Here">       
+                    <input type="submit" name="login" id="login" value="login" class="submit-btn">
+                </form>     
                     <br><br>    
             </div>    
     </body>    
-</html> 
+    {% endblock %}
