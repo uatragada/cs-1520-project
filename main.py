@@ -53,7 +53,7 @@ def login_user():
             flask.session['user'] = um.login_user(email, password)
             curr_user = get_user()
             if curr_user is not None:
-                return flask.redirect('/products')
+                return flask.redirect('/account')
             else:
                 return show_page('/LoginPage.html', err='Incorrect email or password')
     return show_page("/LoginPage.html")

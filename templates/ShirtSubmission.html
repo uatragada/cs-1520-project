@@ -4,18 +4,26 @@
     <title>Shirt Submission</title>
     {% endblock %}   
     {% block content %}
-<h1>Shirt Submission</h1>
-        <form action="/shirt-submission" method="POST" id="shirt-form">
-            <div class= "shirt-submission">
-            <label for="shirtName"> Design Name </label>
-            <input type="text" id="shirtName" name="shirtName" value="">
-            <br><br>
-            <label for="shirtImage">Select Design Image:</label>
-            <input type="file" id="shirtImage" name="shirtImage" accept="image/*" required>
-            <br><br>
-            <button type="button" class="submit-btn" onclick="checkForm()">Submit</button>
+    <div class="login-page">
+        <div class="form">
+            <div class="login">
+                <div class="login-header">
+                    <h1>Shirt Submission</h1>
+                    <form action="/shirt-submission" method="POST" id="shirt-form">
+                        <div class= "shirt-submission">
+                        <label for="shirtName"> Design Name </label>
+                        <input type="text" id="shirtName" name="shirtName" value="">
+                        <br><br>
+                        <label for="shirtImage">Select Design Image:</label>
+                        <input type="file" id="shirtImage" name="shirtImage" accept="image/*" required>
+                        <br><br>
+                        <button type="button" class="submit-btn" onclick="checkForm()">Submit</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-        </form>
+        </div>
+    </div>                
         <script>
             function checkForm(){
                 if(document.getElementById("shirtName").value!='' && document.getElementById('shirtImage').value!=''){

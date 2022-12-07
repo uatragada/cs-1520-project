@@ -4,13 +4,22 @@
     <title>Account</title>
     {% endblock %}   
     {% block content %}
-    <h1>My Account</h1>
-    <div class="account-info">
-        <p><span class="account-detail">{{ current_user.first_name }} {{current_user.last_name}}</span><p>
-        <p>Username: <span class="account-detail">{{ current_user.username }}</span><p>
-        <p>Account Type: <span class="account-detail">{{ current_user.acc_type }}</span><p>
-    </p>
+    <div class="login-page">
+        <div class="form">
+            <div class="login">
+                <div class="login-header">
+                    <h2>My Account</h2>
+                    <!-- <div class="account-info"> -->
+                        <p><b>Name: </b><span class="account-detail">{{ current_user.first_name }} {{current_user.last_name}}</span><p>
+                        <p><b>Username: </b><span class="account-detail">{{ current_user.username }}</span><p>
+                        <p><b>Account Type: </b><span class="account-detail">{{ current_user.acc_type }}</span><p>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
     <!--designs that the user has submitted should be displayed here-->
     <div class="user-designs">
         <p>Submitted Designs:</p>
