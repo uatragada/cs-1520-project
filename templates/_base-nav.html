@@ -3,7 +3,7 @@
         <title>{{page_title}}</title>
         <link rel="stylesheet" href="/s/style.css">
     </head>
-    <body class="base-body">
+    <body class="base-body" style="overflow-x: hidden;">
         <nav class="base-nav">
             {% if current_user %}
             <label class="nav-link">{{current_user.username}}</label>
@@ -20,9 +20,9 @@
             <a class="nav-link" href="/about">About</a>
         </nav>
      
-        <header>
+        <!-- <header>
             {% block header %}{% endblock %}
-        </header>
+        </header> -->
         <section class="base-section">
             {% block content %}{% endblock %}
         </section>

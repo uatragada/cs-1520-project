@@ -25,6 +25,9 @@ if __name__ == '__main__':
     app.run(host='127.0.0.1', port=8080, debug=True)
 
 
+
+
+
 @app.route('/register', methods=['POST', 'GET'])
 def register_user():
     if flask.request.method =='POST':
@@ -53,7 +56,7 @@ def login_user():
             flask.session['user'] = um.login_user(email, password)
             curr_user = get_user()
             if curr_user is not None:
-                return flask.redirect('/products')
+                return flask.redirect('/account')
             else:
                 return show_page('/LoginPage.html', err='Incorrect email or password')
     return show_page("/LoginPage.html")
@@ -64,6 +67,8 @@ def About():
 
 @app.route('/products', methods = ['GET'])
 def ProductPage():
+    
+
     return show_page("/ProductPage.html")
 
 @app.route('/account', methods=['POST', 'GET'])
