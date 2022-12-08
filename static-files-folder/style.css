@@ -177,8 +177,6 @@ label{
 }
 
 .flex-item-image{
-    width: 100%;
-  height: auto;
-  
-  vertical-align: bottom;
+    height: 200px;
+    width: 200px;
 }
