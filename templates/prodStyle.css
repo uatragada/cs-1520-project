@@ -18,9 +18,3 @@ h2{
 }
 
 
-.flex-container{
-    display: flex;
-    background-color: rgb(255, 255, 255);
-    flex-direction: row;
-    justify-content: center;
-}

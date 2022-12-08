@@ -29,9 +29,6 @@ def get_allDesigns():
     client = get_client()
     query = client.query(kind = 'design')
     shirtsList = list(query.fetch())
-    print(shirtsList)
-    for shirt in shirtsList:
-        get_designImage(shirt)
     return shirtsList
 
 class ShirtManager():

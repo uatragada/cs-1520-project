@@ -3,8 +3,15 @@
     <title>Product Page</title>
     {% endblock %}
     {% block content %}
-
-
-
+    <table>
+        
+        {% for shirt in shirtList %}
+        <div class = "flex-container"> 
+            <td class="shirtNames">{{ shirt['shirtName'] }}</td>
+            <td class="shirtNames">{{ shirt['designer'] }}</td>
+        </div>
+        {% endfor %}
+        
+    </table>
 
     {% endblock %}

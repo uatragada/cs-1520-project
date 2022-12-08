@@ -67,9 +67,7 @@ def About():
 
 @app.route('/products', methods = ['GET'])
 def ProductPage():
-    
-
-    return show_page("/ProductPage.html")
+    return flask.render_template("/ProductPage.html", shirtList = shirts.get_allDesigns())
 
 @app.route('/account')
 def Account():
