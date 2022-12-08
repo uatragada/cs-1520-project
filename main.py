@@ -4,7 +4,7 @@ import json
 import user
 import shirts
 import hashlib
-
+from google.cloud import datastore
 
 app = flask.Flask(__name__)
 app.secret_key = b'QB\xb7\x89ry\xff}\xc3\x85B\x00.\xc3\xb7\xed'
@@ -69,9 +69,18 @@ def About():
 def ProductPage():
     return flask.render_template("/ProductPage.html", shirtList = shirts.get_allDesigns())
 
-@app.route('/account')
+@app.route('/account', methods=['POST', 'GET'])
 def Account():
-    return show_page("/AccountInfo.html")
+    
+    '''
+    if flask.request.method == 'POST':
+        curr_user = get_user()
+        curr_user['acc_type'] = flask.request.form['account-type']
+       # print(flask.request.form['account-type'])
+       # um.update(curr_user)
+        return flask.redirect('/account')
+        '''
+    return show_page("/AccountInfo.html", designs=get_designs())
 
 @app.route('/shirt-submission', methods=['POST', 'GET'])
 def shirt_submission():
@@ -103,5 +112,16 @@ def logout():
     flask.session['user'] = None
     return flask.redirect('/login')
 
-def show_page(page, err=None):
-    return flask.render_template(page, current_user=get_user(), error_message=err)
+def show_page(page, err=None, designs=None):
+    return flask.render_template(page, current_user=get_user(), error_message=err, designs=designs)
+
+def get_client():
+    return datastore.Client()
+
+def get_designs():
+    client = get_client()
+    query = client.query(kind='design')
+    curr_user = get_user()
+    query.add_filter('designer', '=', curr_user.get('first_name'))
+    designs = list(query.fetch())
+    return designs
