@@ -1,17 +1,35 @@
 {% extends '_base-nav.html' %}
-    {% block header %}
-    <title>Product Page</title>
-    {% endblock %}
-    {% block content %}
-    <table>
-        
-        {% for shirt in shirtList %}
-        <div class = "flex-container"> 
-            <td class="shirtNames">{{ shirt['shirtName'] }}</td>
-            <td class="shirtNames">{{ shirt['designer'] }}</td>
-        </div>
-        {% endfor %}
-        
-    </table>
+{% block header %}
+<title>Product Page</title>
+{% endblock %}
+{% block content %}
 
-    {% endblock %}
+<ul class="flex-container">
+
+    {% for shirt in shirtList %}
+
+    <div class="flex-item">
+        <div class="flex-item-content">
+            <li class="shirtNames">{{ shirt['shirtName'] }}</li>
+            <li class="shirtNames">{{ shirt['designer'] }}</li>
+            <li class="shirtNames">{{ shirt['votes'] }}</li>
+            <li>
+                <button action="/vote">Vote</button>
+            </li>
+        </div>
+        <div class="flex-item-image">
+            <li>
+                <img src='/s/images/samp2.png'>
+            </li>
+        </div>
+    </div>
+    {% endfor %}
+
+</ul>
+
+
+
+
+</div>
+
+{% endblock %}
