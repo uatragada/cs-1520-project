@@ -1,10 +1,10 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 
 body {
-    background-color: #328f8a;
-    background-image: linear-gradient(45deg,#328f8a,#08ac4b);
-    font-family: "Roboto", sans-serif;
+    background-color: #C2D3CD;
+    background-image: linear-gradient(45deg,#C2D3CD,#C2D3CD);
+    font-family: "Montserrat";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -29,7 +29,7 @@ body {
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   }
   .form input {
-    font-family: "Roboto", sans-serif;
+    font-family: "Montserrat";
     outline: 0;
     background: #f2f2f2;
     width: 100%;
@@ -40,7 +40,7 @@ body {
     font-size: 14px;
   }
   .form button {
-    font-family: "Roboto", sans-serif;
+    font-family: "Montserrat";
     text-transform: uppercase;
     outline: 0;
     background-color: #328f8a;
@@ -75,15 +75,19 @@ body {
 /* ===================================================== */
 
 .base-nav{
-    background-color:darkcyan;
+    background-color:#56494C;
     color:white;
     height:5%;
     padding-top:1%;
+    border-radius: 15px 50px 30px 5px;
+    margin-left: auto;
+    margin-right:auto;
+    
 }
 
 .base-body{
     background-color:white;
-    color:darkcyan;
+    color:#56494C;
     text-align:center;
     width:100%;
 
@@ -91,7 +95,7 @@ body {
 
 .submit-btn{
     border-radius:10px;
-    background-color:darkcyan;
+    background-color:#56494C;
     color:white;
     width:80px;
     height:40px;
@@ -129,7 +133,7 @@ label{
 
 .flex-container{
     display: flex;
-    background-color: #4CAF50;
+    background-color: #C2D3CD;
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
@@ -140,17 +144,17 @@ label{
 
 .shirtNames{
     
-    background-color: black;
+    background-color: 9FA4A9;
     color: white;
 }
 .flex-item {
-    background: #4CAF50;
+    background: #C2D3CD;
     padding: 5px;
-    width: 250px;
+    width: 400px;
     height: 500px;
     margin-top: 10px;
     line-height: 0px;
-    color: #4CAF50;
+    color: #C2D3CD;
     font-weight: bold;
     font-size: 3em;
     text-align: center;
@@ -160,20 +164,101 @@ label{
 
 
 .flex-item-content{
-    background: #4CAF50;
+    background: #C2D3CD;
     padding: 5px;
-    width: 100px;
-    height: 200px;
+    width: 400px;
+    height: 100px;
     margin-top: 10px;
     line-height: normal;
-    color: #4CAF50;
-    font-weight: bold;
-    font-size: 1em;
+    color: #C2D3CD;
+    font-weight: normal;
+    font-size: 16px;
     text-align: center;
 }
 
 
 .flex-item-image{
-    height: 200px;
-    width: 200px;
+    height: 400px;
+    width: 400px;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  background: #272727;
+  font-family: "Montserrat", sans-serif;
+}
+
+.navMenu {
+  position: top;
+  top: 50%;
+  left: 50%;
+  
+}
+
+.navMenu a {
+  color: #f6f4e6;
+  text-decoration: none;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  font-weight: 500;
+  display: inline-block;
+  width: 80px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  padding: 20px;
+}
+
+.navMenu a:hover {
+  color: #fddb3a;
+}
+
+.navMenu .dot {
+  width: 6px;
+  height: 6px;
+  background: #fddb3a;
+  border-radius: 50%;
+  opacity: 0;
+  -webkit-transform: translateX(30px);
+  transform: translateX(30px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.navMenu a:nth-child(1):hover ~ .dot {
+  -webkit-transform: translateX(30px);
+  transform: translateX(30px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+}
+
+.navMenu a:nth-child(2):hover ~ .dot {
+  -webkit-transform: translateX(110px);
+  transform: translateX(110px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+}
+
+.navMenu a:nth-child(3):hover ~ .dot {
+  -webkit-transform: translateX(200px);
+  transform: translateX(200px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+}
+
+.navMenu a:nth-child(4):hover ~ .dot {
+  -webkit-transform: translateX(285px);
+  transform: translateX(285px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
 }
