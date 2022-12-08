@@ -55,4 +55,7 @@ class UserManager():
         else:
             self.user = None
         return self.user
+        
+    def update(self, user):
+        update_user(user)
 

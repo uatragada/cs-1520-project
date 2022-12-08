@@ -9,10 +9,33 @@
         <p><span class="account-detail">{{ current_user.first_name }} {{current_user.last_name}}</span><p>
         <p>Username: <span class="account-detail">{{ current_user.username }}</span><p>
         <p>Account Type: <span class="account-detail">{{ current_user.acc_type }}</span><p>
+        <br><br>
     </p>
+    <!--
+    <p>Switch Account Type: </p>
+    {% if current_user.acc_type == 'designer' %}  
+    <form class="account-form" id="switch" name=switch method="POST" action="">  
+    <input type="hidden" id="patron" name="account-type" value="patron"/>
+    <button type="submit" name="switch" id="switch" value="switch" class="">Switch to Patron Account</button>
+    </form>
+    {% else %}
+    <form class="account-form" id="switch" name=switch method="POST" action="">  
+    <input type="hidden" id="designer" name="account-type" value="designer"/>
+    <button type="submit" name="switch" id="switch" value="switch" class="">Switch to Designer Account</button>
     </div>
+    {% endif %}
+    -->
+
     <!--designs that the user has submitted should be displayed here-->
+    {% if current_user.acc_type == 'designer' %}
     <div class="user-designs">
         <p>Submitted Designs:</p>
+        {% for design in designs %}
+             <!-- designImage -->
+        <p>{{ design['shirtName'] }}</p>
+        {% else %}
+    <p>No submitted Designs.</p>
+    {% endfor %}
     </div>
+    {% endif %}
     {% endblock %}
