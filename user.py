@@ -38,6 +38,7 @@ class UserManager():
         user['email'] = email
         user['password'] = password
         user['acc_type'] = acc_type
+        user['voted'] = []
         update_user(user)
         self.user = user
         return self.user

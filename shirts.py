@@ -19,7 +19,10 @@ def update_design(design):
 def get_designImage(shirt):
     return
     
-    
+def update_votes(design):
+    client = get_client()
+    design['votes'] = design['votes'] + 1
+    client.put(design)
     
 
 def get_allDesigns():
@@ -42,6 +45,7 @@ class ShirtManager():
         shirt['shirtName'] = shirtName
         shirt['shirtDesignImage'] = shirtDesignImage
         shirt['dateCreated'] = datetime.now()
+        shirt['votes'] = 0
         update_design(shirt)
         self.shirt = shirt
         print(shirt)
