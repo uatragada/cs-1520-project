@@ -1,5 +1,5 @@
 from google.cloud import datastore
-
+from datetime import datetime
 
 def get_client():
     return datastore.Client()
@@ -15,6 +15,14 @@ def update_design(design):
     client = get_client()
     client.put(design)
 
+def get_designs():
+    client = get_client()
+    query = client.query(kind='design')
+    shirtsList = list(query.fetch())
+    for shirt in shirtsList:
+        print(shirt)
+        print('\n')
+    return shirtsList
 
 class ShirtManager():
 
@@ -26,9 +34,11 @@ class ShirtManager():
         shirt['designer'] = designer
         shirt['shirtName'] = shirtName
         shirt['shirtDesignImage'] = shirtDesignImage
+        shirt['dateCreated'] = datetime.now()
         update_design(shirt)
         self.shirt = shirt
         print(shirt)
+        get_designs()
         return self.shirt
 
     

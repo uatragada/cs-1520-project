@@ -25,6 +25,9 @@ if __name__ == '__main__':
     app.run(host='127.0.0.1', port=8080, debug=True)
 
 
+
+
+
 @app.route('/register', methods=['POST', 'GET'])
 def register_user():
     if flask.request.method =='POST':
@@ -64,6 +67,8 @@ def About():
 
 @app.route('/products', methods = ['GET'])
 def ProductPage():
+    
+
     return show_page("/ProductPage.html")
 
 @app.route('/account')
