@@ -5,12 +5,19 @@
     {% endblock %}   
     {% block content %}
     <h1>My Account</h1>
-    <div class="account-info">
-        <p><span class="account-detail">{{ current_user.first_name }} {{current_user.last_name}}</span><p>
-        <p>Username: <span class="account-detail">{{ current_user.username }}</span><p>
-        <p>Account Type: <span class="account-detail">{{ current_user.acc_type }}</span><p>
-        <br><br>
-    </p>
+    <div class="login-page">
+        <div class="form">
+            <div class="login">
+                <div class="login-header">
+                        <p><b>Name: </b><span class="account-detail">{{ current_user.first_name }} {{current_user.last_name}}</span></p>
+                        <br><br>
+                        <p><b>Username: </b><span class="account-detail">{{ current_user.username }}</span></p>
+                        <br><br>
+                        <p><b>Account Type:</b> <span class="account-detail">{{ current_user.acc_type }}</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
     <!--
         switch account type
         needs more work
@@ -31,14 +38,20 @@
 
     <!--designs that the user has submitted should be displayed here-->
     {% if current_user.acc_type == 'designer' %}
-    <div class="user-designs">
-        <p>Submitted Designs:</p>
-        {% for design in designs %}
-             <!-- designImage -->
-        <p>{{ design['shirtName'] }}</p>
-        {% else %}
-    <p>No submitted Designs.</p>
-    {% endfor %}
-    </div>
+        <div class="login-page">
+            <div class="form">
+                <div class="login">
+                    <div class="login-header">
+                        <p><b>Submitted Designs:</b></p>
+                        {% for design in designs %}
+                            <!-- designImage -->
+                            <p>{{ design['shirtName'] }}</p>
+                        {% else %}
+                            <p>No submitted Designs.</p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
     {% endif %}
     {% endblock %}
